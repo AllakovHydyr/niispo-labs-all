@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  web1:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    networks:
+      - mynet
+
+  web2:
+    image: httpd:alpine
+    ports:
+      - "8081:80"
+    networks:
+      - mynet
+
+networks:
+  mynet:
+    driver: bridge
